@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div *ngIf="subMenuList.length > 0" class="dropdown-menu">
+                    <a *ngFor="let subMenu of subMenuList" class="dropdown-item" href="#">{{subMenu}}</a>
+                    <div class="dropdown-divider"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <label>SubMenuName:</label>
+                <input type="text" formControlName="subMenuName" required>
+            </p>
+            <p>
+                <label>SubMenuCount</label>
+                <select formControlName="subMenuCount" (change)="changeCount($event)">
+                    <option value="select count">Select count</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </p>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+        </form>
+    </div>
+</div>

@@ -29,9 +29,10 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  
+
   changeCount(event: any) {
 console.log(event);
-
   }
 
 }
